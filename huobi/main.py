@@ -74,33 +74,13 @@ def run_strategy():
     feed = LiveFeed([COIN_TYPE], Frequency.MINUTE*K_PERIOD, REQ_DELAY)
 
     # commission
-#    broker_commission = broker.backtesting.TradePercentage(0.002)
-#    broker_brk = broker.backtesting.Broker(20000, feed, broker_commission)
     liveBroker = LiveBroker(COIN_TYPE, hbClient(COIN_TYPE))
     # Evaluate the strategy with the feed.
     myStrategy = MyStrategy(feed, COIN_TYPE, liveBroker)
     
-#    returnsAnalyzer = returns.Returns()
-#    myStrategy.attachAnalyzer(returnsAnalyzer)
-    
 
-    # Attach the plotter to the strategy.
-#    plt = plotter.StrategyPlotter(myStrategy)
-    # Include the SMA in the instrument's subplot to get it displayed along with the closing prices.
-#    plt.getInstrumentSubplot("orcl").addDataSeries("SMA60", myStrategy.getSMA(60))
-#    plt.getInstrumentSubplot("orcl").addDataSeries("SMA10", myStrategy.getSMA(10))
-#    plt.getInstrumentSubplot("orcl").addDataSeries("SMA30", myStrategy.getSMA(30))
-    # Plot the simple returns on each bar.
-#    plt.getOrCreateSubplot("returns").addDataSeries("Simple returns", returnsAnalyzer.getReturns())
-    
-    
     myStrategy.run()
-#    print "Final portfolio value: $%.2f" % myStrategy.getBroker().getEquity()
     print "Final portfolio value: $%.4f" % myStrategy.getBroker().getCash()
-#    myStrategy.info("Final portfolio value: $%.2f" % myStrategy.getResult())
-
-    # Plot the strategy.
-#    plt.plot()
 
 run_strategy()
 

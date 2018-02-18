@@ -6,6 +6,7 @@ from pyalgotrade.bitstamp import common
 from pyalgotrade.stratanalyzer import returns
 from pyalgotrade.technical import cross
 from pyalgotrade.technical import ma
+from klines_loader import load_kline,get_file_path
 
 
 class F():
@@ -77,7 +78,7 @@ class MyStrategy(strategy.BacktestingStrategy):
 def run_strategy():
     # Load the yahoo feed from the CSV file
     feed = GenericBarFeed(Frequency.DAY, None, None)
-    feed.addBarsFromCSV(coin, "2000.csv")
+    feed.addBarsFromCSV(coin, get_file_path())
 
     # commission
     broker_commission = broker.backtesting.TradePercentage(0.002)
