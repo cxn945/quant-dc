@@ -1,0 +1,3 @@
+
+DEFAULT_SYMBOL='btcusdt'
+DEFAULT_PREIOD = 60

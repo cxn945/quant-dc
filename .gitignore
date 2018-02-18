@@ -1,0 +1,9 @@
+ApiKey.py
+*.pyc
+*.swp
+~*
+
+.DS_Store
+.idea/
+example.png
+data/*.csv
